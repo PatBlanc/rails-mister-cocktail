@@ -9,7 +9,8 @@ class DosesController < ApplicationController
   end
 
   def new           # GET /doses/new
-    @dose = Dose.new(params[:dose])
+    @dose = Dose.new
+    @cocktail = Cocktail.find(params[:cocktail_id])
   end
 
   def create        # POST /doses

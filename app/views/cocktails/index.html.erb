@@ -1,15 +1,25 @@
 <div class="home-banner">
   <h1>voici mes cocktails</h1>
-  <div>
-    <% @cocktails.each do |cocktail| %>
 
-    <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title"><%= cocktail.name %></h5>
-        <p class="card-text">description du cocktail *5.</p>
-        <a href="#" class="btn btn-primary">Go to the recipe</a>
+
+  <div class="container">
+    <div class="row">
+
+      <% @cocktails.each do |cocktail| %>
+
+      <div class="card col-md-3" style="width: 18rem;">
+        <img class="card-img-top" src=https://source.unsplash.com/400x400/?cocktail,<%=cocktail.name%> alt="pics of <%=cocktail.name%>">
+        <div class="card-body">
+          <h5 class="card-title"><%= cocktail.name %></h5>
+          <p class="card-text">description du cocktail *5.</p>
+          <%= link_to 'Go to recipe', cocktail_path(cocktail) %>
+        </div>
       </div>
+      <% end %>
     </div>
   </div>
+<br>
+
+<%= link_to 'New cocktail', new_cocktail_path %>
+
 </div>

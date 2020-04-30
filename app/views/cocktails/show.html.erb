@@ -1,12 +1,17 @@
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src=https://source.unsplash.com/featured/?cocktail,<%=@cocktail.name%> alt="pics of <%=@cocktail.name%>">
+  <div class="card-body">
+    <h5 class="card-title"><%= @cocktail.name %></h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <% @cocktail.doses.each do |dose| %>
 
-<div class="container">
- <!-- Inject the grid here -->
- <%= @cocktail.name %>
-</div>
-
-
-<div class="container">
-  <div class="row"></div>
-  <div class="row"></div>
-  <div class="row"></div>
+    <li class="list-group-item"><%= dose.description %></li>
+    <li class="list-group-item"><%= dose.ingredient.name %></li>
+    <% end %>
+  </ul>
+  <div class="card-body">
+    <%= link_to 'New cocktail', new_cocktail_path %>
+    <a href="#" class="card-link">Another link</a>
+  </div>
 </div>
